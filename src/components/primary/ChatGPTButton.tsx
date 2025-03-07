@@ -1,6 +1,6 @@
-import { SmallGPTIcon, NewChatIcon } from "@/icons/sidebar-icons";
-import { HStack, Link, Circle, AbsoluteCenter, Text } from "@chakra-ui/react";
-import { Tooltip } from "../ui/tooltip";
+import { SmallGPTIcon } from "@/icons/sidebar-icons";
+import { Circle, HStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const ChatGptButton = () => {
   return (
@@ -14,34 +14,14 @@ const ChatGptButton = () => {
       position="relative"
       className="group"
     >
-      <Link
-        href="#"
-        variant="plain"
-        _hover={{ textDecoration: "none" }}
-        w={"full"}
-        outline={"none"}
-      >
-        <Circle size="6"  borderWidth="1px">
-          <SmallGPTIcon fontSize="md" />
-        </Circle>
+      <Circle size="6" borderWidth="1px">
+        <SmallGPTIcon fontSize="md" />
+      </Circle>
+      <Link to={"/"}>
         <Text fontSize="sm" fontWeight="md">
           ChatGPT
         </Text>
       </Link>
-      <AbsoluteCenter
-        axis="vertical"
-        right="2"
-        display="none"
-        _groupHover={{ display: "initial" }}
-      >
-        <Tooltip content="New chat">
-          <NewChatIcon
-            fontSize="md"
-            color="fg.subtle"
-            _hover={{ color: "fg.muted" }}
-          />
-        </Tooltip>
-      </AbsoluteCenter>
     </HStack>
   );
 };
