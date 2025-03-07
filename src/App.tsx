@@ -6,7 +6,7 @@ import ToggleProvider from "./contexts/ToggleProvider";
 function App() {
   return (
     <ToggleProvider>
-      <Flex minH="100dvh">
+      <Flex h="100vh">
         <SideBar />
         <MainPanel />
       </Flex>

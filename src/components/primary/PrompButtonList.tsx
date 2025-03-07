@@ -49,7 +49,7 @@ const PrompButtonList = () => {
     },
     {
       icon: <BirthdayIcon color="cyan.500" fontSize="lg" />,
-      description: "Surpriise me",
+      description: "Surprise me",
     },
     {
       description: "More",
