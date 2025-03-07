@@ -4,7 +4,7 @@ import TextInput from "./TextInput";
 
 const TextInputPanel = () => {
   return (
-    <VStack gap={"6"} bg={'blue'}>
+    <VStack gap={"6"}>
       <Heading size="3xl">What can I help with?</Heading>
       <Center>
         <TextInput />
@@ -13,7 +13,7 @@ const TextInputPanel = () => {
       <HStack gap={"2"}>
         <PrompButtonList />
       </HStack>
-      </VStack>
+    </VStack>
   );
 };
 

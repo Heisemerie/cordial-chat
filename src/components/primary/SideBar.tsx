@@ -6,7 +6,7 @@ import SideBarControls from "./SideBarControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 
 const SideBar = () => {
-  const { sideBarVisible, setSidebarVisible } = useToggle();
+  const { sideBarVisible } = useToggle();
 
   return (
     <Box
@@ -17,9 +17,7 @@ const SideBar = () => {
       h={"full"}
     >
       <Stack h="full" px="3" py="2">
-        <SideBarControls
-          toggleSidebar={() => setSidebarVisible(!sideBarVisible)}
-        />
+        <SideBarControls />
 
         <Stack px="2" gap="0" flex="1">
           <ChatGptButton />

@@ -5,16 +5,12 @@ import MainPanelControls from "./MainPanelControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 
 const TopSection = () => {
-  const { sideBarVisible, setSidebarVisible } = useToggle();
+  const { sideBarVisible } = useToggle();
 
   return (
     <Flex justify="space-between" align="center" p={2} w={"full"}>
       <HStack>
-        {!sideBarVisible && (
-          <MainPanelControls
-            toggleSidebar={() => setSidebarVisible(!sideBarVisible)}
-          />
-        )}
+        {!sideBarVisible && <MainPanelControls />}
         <ChatGPTMenu />
       </HStack>
       <Avatar
