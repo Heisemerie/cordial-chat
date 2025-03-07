@@ -2,6 +2,7 @@ import useChats from "@/contexts/ChatsContext/useChats";
 import { useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
 import { Box } from "@chakra-ui/react";
+import ThinkingSkeleton from "./ThinkingSkeleton";
 
 const LastBubble = (index: number, array: string[]) => {
   const lastBubble = index === array.length - 1;
@@ -9,7 +10,7 @@ const LastBubble = (index: number, array: string[]) => {
 };
 
 const ChatList = () => {
-  const { chats } = useChats();
+  const { chats, loading } = useChats();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const ChatList = () => {
   }, [chats]);
 
   return (
-    <Box flex={1}>
+    <Box flex={1} w={"full"}>
       {chats.map((chat, index) => (
         <ChatBubble
           text={chat}
@@ -28,6 +29,7 @@ const ChatList = () => {
           ref={LastBubble(index, chats) ? scrollRef : null}
         />
       ))}
+      {loading && <ThinkingSkeleton />}
     </Box>
   );
 };

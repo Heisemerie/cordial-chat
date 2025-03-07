@@ -46,7 +46,7 @@ const SendPromptButton = ({
 };
 
 const TextInput = () => {
-  const { setChats } = useChats();
+  const { setChats, setLoading } = useChats();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
@@ -54,8 +54,12 @@ const TextInput = () => {
     if (inputValue !== "") {
       navigate("/chat");
       setInputValue("");
+      setLoading(true);
       //send prompt to server
-      chatGPTService(inputValue).then((res) => setChats(res));
+      chatGPTService(inputValue).then((res) => {
+        setChats(res);
+        setLoading(false);
+      });
     }
   };
 
