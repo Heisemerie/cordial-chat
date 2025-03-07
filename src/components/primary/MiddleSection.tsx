@@ -14,7 +14,7 @@ const MiddleSection = () => {
         {noChats && <Heading size="3xl">What can I help with?</Heading>}
         <ChatList chats={chats} />
         <Center>
-          <TextInput setChats={(text) => setChats([...chats, text])} />
+          <TextInput setChats={(chats) => setChats(chats)} />
         </Center>
         {noChats && (
           <HStack gap={"2"}>

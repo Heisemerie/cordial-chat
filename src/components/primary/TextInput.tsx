@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import { FileUploadList } from "../ui/file-upload";
 import { InputGroup } from "../ui/input-group";
+import chatGPTService from "@/services/chatGPTService";
 
 const FileUploadButton = () => {
   return (
@@ -40,13 +41,15 @@ const SendPromptButton = ({
   );
 };
 
-const TextInput = ({ setChats }: { setChats: (text: string) => void }) => {
+const TextInput = ({ setChats }: { setChats: (chats: string[]) => void }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleClick = () => {
-    //send prompt to server
-    if (inputValue !== "") setChats(inputValue);
-    setInputValue("");
+    if (inputValue !== "") {
+      //send prompt to server
+      chatGPTService(inputValue).then((res) => setChats(res));
+      setInputValue("");
+    }
   };
 
   return (
