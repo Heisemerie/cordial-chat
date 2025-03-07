@@ -4,32 +4,23 @@ import ChatBubble from "./ChatBubble";
 import { Box } from "@chakra-ui/react";
 import ThinkingSkeleton from "./ThinkingSkeleton";
 
-const LastBubble = (index: number, array: string[]) => {
-  const lastBubble = index === array.length - 1;
-  return lastBubble;
-};
-
 const ChatList = () => {
   const { chats, loading } = useChats();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [chats]);
+  }, [loading]);
 
   return (
-    <Box flex={1} w={"full"}>
+    <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
       {chats.map((chat, index) => (
-        <ChatBubble
-          text={chat}
-          index={index}
-          key={index}
-          ref={LastBubble(index, chats) ? scrollRef : null}
-        />
+        <ChatBubble text={chat} index={index} key={index} />
       ))}
       {loading && <ThinkingSkeleton />}
+      <div ref={bottomRef} />
     </Box>
   );
 };

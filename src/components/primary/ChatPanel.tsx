@@ -1,17 +1,11 @@
 import { VStack } from "@chakra-ui/react";
-import ChatBubbleList from "./ChatList";
+import ChatList from "./ChatList";
 import TextInput from "./TextInput";
 
 const ChatPanel = () => {
   return (
-    <VStack
-      gap={6}
-      h={"full"}
-      overflowY={"scroll"}
-      scrollbarWidth={"none"}
-      maxW={"768px"}
-    >
-      <ChatBubbleList />
+    <VStack h={"full"} maxW={"768px"}>
+      <ChatList />
       <TextInput />
     </VStack>
   );
