@@ -9,7 +9,7 @@ const ToggleProvider = ({ children }: Props) => {
   const [sideBarVisible, setSidebarVisible] = useState(true);
 
   return (
-    <ToggleContext.Provider value={{sideBarVisible, setSidebarVisible}}>
+    <ToggleContext.Provider value={{ sideBarVisible, setSidebarVisible }}>
       {children}
     </ToggleContext.Provider>
   );

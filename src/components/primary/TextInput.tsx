@@ -9,6 +9,8 @@ import { useState } from "react";
 import { FileUploadList } from "../ui/file-upload";
 import { InputGroup } from "../ui/input-group";
 import chatGPTService from "@/services/chatGPTService";
+import useChats from "@/contexts/ChatsContext/useChats";
+import { useNavigate } from "react-router-dom";
 
 const FileUploadButton = () => {
   return (
@@ -43,14 +45,17 @@ const SendPromptButton = ({
   );
 };
 
-const TextInput = ({ setChats }: { setChats: (chats: string[]) => void }) => {
+const TextInput = () => {
+  const { setChats } = useChats();
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
   const handleClick = () => {
     if (inputValue !== "") {
+      navigate("/chat");
+      setInputValue("");
       //send prompt to server
       chatGPTService(inputValue).then((res) => setChats(res));
-      setInputValue("");
     }
   };
 

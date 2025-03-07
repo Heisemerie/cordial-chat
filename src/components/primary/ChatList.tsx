@@ -1,17 +1,15 @@
-import { VStack } from "@chakra-ui/react";
-import ChatBubble from "./ChatBubble";
+import useChats from "@/contexts/ChatsContext/useChats";
 import { useEffect, useRef } from "react";
-
-interface Props {
-  chats: string[];
-}
+import ChatBubble from "./ChatBubble";
+import { Box } from "@chakra-ui/react";
 
 const LastBubble = (index: number, array: string[]) => {
   const lastBubble = index === array.length - 1;
   return lastBubble;
 };
 
-const ChatList = ({ chats }: Props) => {
+const ChatList = () => {
+  const { chats } = useChats();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,14 +19,7 @@ const ChatList = ({ chats }: Props) => {
   }, [chats]);
 
   return (
-    <VStack
-      as="div"
-      w={"768px"}
-      gapY={6}
-      h={"full"}
-      overflow={"scroll"}
-      scrollbarWidth={"none"}
-    >
+    <Box flex={1}>
       {chats.map((chat, index) => (
         <ChatBubble
           text={chat}
@@ -37,7 +28,7 @@ const ChatList = ({ chats }: Props) => {
           ref={LastBubble(index, chats) ? scrollRef : null}
         />
       ))}
-    </VStack>
+    </Box>
   );
 };
 

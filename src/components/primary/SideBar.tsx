@@ -3,7 +3,7 @@ import ChatGptButton from "./ChatGPTButton";
 import ExploreGptButton from "./ExploreGPTButton";
 import UpgradePlanButton from "./UpgradePlanButton";
 import SideBarControls from "./SideBarControls";
-import useToggle from "@/contexts/useToggle";
+import useToggle from "@/contexts/ToggleContext/useToggle";
 
 const SideBar = () => {
   const { sideBarVisible, setSidebarVisible } = useToggle();
@@ -14,6 +14,7 @@ const SideBar = () => {
       w={!sideBarVisible ? "0" : "260px"}
       overflow="hidden"
       transition="width 0.3s"
+      h={"full"}
     >
       <Stack h="full" px="3" py="2">
         <SideBarControls
