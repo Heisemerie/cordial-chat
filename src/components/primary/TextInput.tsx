@@ -30,6 +30,8 @@ const SendPromptButton = ({
 }) => {
   return (
     <IconButton
+      type="submit"
+      form="form"
       fontSize="2xl"
       size="sm"
       borderRadius="full"
@@ -53,25 +55,27 @@ const TextInput = ({ setChats }: { setChats: (chats: string[]) => void }) => {
   };
 
   return (
-    <InputGroup
-      minW="768px"
-      startElement={<FileUploadButton />}
-      endElement={
-        <SendPromptButton inputValue={inputValue} handleClick={handleClick} />
-      }
-    >
-      <Input
-        as={"input"}
-        placeholder="Message ChatGPT"
-        variant="subtle"
-        size="lg"
-        borderRadius="3xl"
-        outline={"none"}
-        border={"none"}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-    </InputGroup>
+    <form id="form">
+      <InputGroup
+        minW="768px"
+        startElement={<FileUploadButton />}
+        endElement={
+          <SendPromptButton inputValue={inputValue} handleClick={handleClick} />
+        }
+      >
+        <Input
+          as={"input"}
+          placeholder="Message ChatGPT"
+          variant="subtle"
+          size="lg"
+          borderRadius="3xl"
+          outline={"none"}
+          border={"none"}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+      </InputGroup>
+    </form>
   );
 };
 
