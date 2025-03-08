@@ -33,7 +33,7 @@ const SendPromptButton = ({
   return (
     <IconButton
       type="submit"
-      form="form"
+      form="TextInput"
       fontSize="2xl"
       size="sm"
       borderRadius="full"
@@ -64,7 +64,7 @@ const TextInput = () => {
   };
 
   return (
-    <form id="form">
+    <form id="TextInput">
       <InputGroup
         minW="768px"
         startElement={<FileUploadButton />}
