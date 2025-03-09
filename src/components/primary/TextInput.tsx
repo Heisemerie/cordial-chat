@@ -1,4 +1,6 @@
+import useChats from "@/contexts/ChatsContext/useChats";
 import { EnterIcon, UploadIcon } from "@/icons/other-icons";
+import chatGPTService from "@/services/chatGPTService";
 import {
   FileUploadRoot,
   FileUploadTrigger,
@@ -6,11 +8,9 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FileUploadList } from "../ui/file-upload";
 import { InputGroup } from "../ui/input-group";
-import chatGPTService from "@/services/chatGPTService";
-import useChats from "@/contexts/ChatsContext/useChats";
-import { useNavigate } from "react-router-dom";
 
 const FileUploadButton = () => {
   return (
@@ -48,11 +48,12 @@ const SendPromptButton = ({
 const TextInput = () => {
   const { setChats, setLoading } = useChats();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [inputValue, setInputValue] = useState("");
 
   const handleClick = () => {
     if (inputValue !== "") {
-      navigate("/chat");
+      if (!pathname.includes("chat")) navigate("/chat");
       setInputValue("");
       setLoading(true);
       //send prompt to server
