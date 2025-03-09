@@ -6,11 +6,12 @@ interface Props {
 }
 
 const ChatsProvider = ({ children }: Props) => {
-  const [chats, setChats] = useState<string[]>([]);
+  const [chats, setChats] = useState<string[][]>([]);
   const [thinking, setThinking] = useState(false);
+  const [chatId, setChatId] = useState(0)
 
   return (
-    <ChatsContext.Provider value={{ chats, setChats, thinking, setThinking }}>
+    <ChatsContext.Provider value={{ chats, setChats, chatId, setChatId, thinking, setThinking }}>
       {children}
     </ChatsContext.Provider>
   );

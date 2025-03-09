@@ -1,71 +1,35 @@
 import useChats from "@/contexts/ChatsContext/useChats";
-import { EnterIcon, UploadIcon } from "@/icons/other-icons";
+import useIntParams from "@/hooks/useIntParams";
 import chatGPTService from "@/services/chatGPTService";
-import {
-  FileUploadRoot,
-  FileUploadTrigger,
-  IconButton,
-  Input,
-} from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { FileUploadList } from "../ui/file-upload";
+import { useNavigate } from "react-router-dom";
 import { InputGroup } from "../ui/input-group";
-
-const FileUploadButton = () => {
-  return (
-    <FileUploadRoot>
-      <FileUploadTrigger asChild>
-        <UploadIcon fontSize="2xl" color="fg" />
-      </FileUploadTrigger>
-      <FileUploadList />
-    </FileUploadRoot>
-  );
-};
-
-const SendPromptButton = ({
-  prompt,
-  handleClick,
-}: {
-  prompt: string;
-  handleClick: () => void;
-}) => {
-  return (
-    <IconButton
-      type="submit"
-      form="TextInput"
-      fontSize="2xl"
-      size="sm"
-      borderRadius="full"
-      disabled={prompt.trim() === ""}
-      onClick={handleClick}
-    >
-      <EnterIcon fontSize="2xl" />
-    </IconButton>
-  );
-};
+import FileUploadButton from "./FileUploadButton";
+import SendPromptButton from "./SendPromptButton";
 
 const TextInput = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const id = useIntParams();
 
-  const { setChats, setThinking } = useChats();
+  const { setChats, setThinking, setChatId } = useChats();
   const [prompt, setPrompt] = useState("");
 
-  const handleClick = () => {
+  const handleSubmit = () => {
     if (prompt !== "") {
-      //navigate to HomePage from ChatPage and clear input field
-      if (!pathname.includes("chat")) navigate("/chat");
       setPrompt("");
 
-      //show thinking skeleton
       setThinking(true);
 
       //send prompt to server
-      chatGPTService(prompt).then((res) => {
-        setChats(res);
-        setThinking(false);
-      });
+      chatGPTService(prompt, id).then(
+        ({ storedChats, newOrRequestedChatId }) => {
+          navigate(`/chat/${newOrRequestedChatId}`);
+          setChats(storedChats);
+          setChatId(newOrRequestedChatId);
+          setThinking(false)
+        }
+      );
     }
   };
 
@@ -75,7 +39,7 @@ const TextInput = () => {
         minW="768px"
         startElement={<FileUploadButton />}
         endElement={
-          <SendPromptButton prompt={prompt} handleClick={handleClick} />
+          <SendPromptButton prompt={prompt} handleSubmit={handleSubmit} />
         }
       >
         <Input
