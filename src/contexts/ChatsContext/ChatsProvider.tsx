@@ -6,12 +6,16 @@ interface Props {
 }
 
 const ChatsProvider = ({ children }: Props) => {
-  const [chats, setChats] = useState<string[][]>([]);
+  const [chats, setChats] = useState<string[][]>(
+    (JSON.parse(sessionStorage.getItem("chats") || "[]") as string[][]) || []
+  );
   const [thinking, setThinking] = useState(false);
-  const [chatId, setChatId] = useState(0)
+  const [chatId, setChatId] = useState(0);
 
   return (
-    <ChatsContext.Provider value={{ chats, setChats, chatId, setChatId, thinking, setThinking }}>
+    <ChatsContext.Provider
+      value={{ chats, setChats, chatId, setChatId, thinking, setThinking }}
+    >
       {children}
     </ChatsContext.Provider>
   );
