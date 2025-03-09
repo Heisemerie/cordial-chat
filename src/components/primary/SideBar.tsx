@@ -27,7 +27,7 @@ const SideBar = () => {
           <ExploreGptButton />
         </Stack>
 
-        <Stack px="2" my={3} flex={1}>
+        <Stack px="2" my={3} flex={1} overflow={'scroll'} scrollbarWidth={'none'}>
           {chats.map((chat, index) => (
             <SideBarChatButton key={index} iD={index} title={chat[0]} />
           ))}
