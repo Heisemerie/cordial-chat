@@ -24,10 +24,10 @@ const FileUploadButton = () => {
 };
 
 const SendPromptButton = ({
-  inputValue,
+  prompt,
   handleClick,
 }: {
-  inputValue: string;
+  prompt: string;
   handleClick: () => void;
 }) => {
   return (
@@ -37,7 +37,7 @@ const SendPromptButton = ({
       fontSize="2xl"
       size="sm"
       borderRadius="full"
-      disabled={inputValue.trim() === ""}
+      disabled={prompt.trim() === ""}
       onClick={handleClick}
     >
       <EnterIcon fontSize="2xl" />
@@ -46,20 +46,25 @@ const SendPromptButton = ({
 };
 
 const TextInput = () => {
-  const { setChats, setLoading } = useChats();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [inputValue, setInputValue] = useState("");
+
+  const { setChats, setThinking } = useChats();
+  const [prompt, setPrompt] = useState("");
 
   const handleClick = () => {
-    if (inputValue !== "") {
+    if (prompt !== "") {
+      //navigate to HomePage from ChatPage and clear input field
       if (!pathname.includes("chat")) navigate("/chat");
-      setInputValue("");
-      setLoading(true);
+      setPrompt("");
+
+      //show thinking skeleton
+      setThinking(true);
+
       //send prompt to server
-      chatGPTService(inputValue).then((res) => {
+      chatGPTService(prompt).then((res) => {
         setChats(res);
-        setLoading(false);
+        setThinking(false);
       });
     }
   };
@@ -70,7 +75,7 @@ const TextInput = () => {
         minW="768px"
         startElement={<FileUploadButton />}
         endElement={
-          <SendPromptButton inputValue={inputValue} handleClick={handleClick} />
+          <SendPromptButton prompt={prompt} handleClick={handleClick} />
         }
       >
         <Input
@@ -81,8 +86,8 @@ const TextInput = () => {
           borderRadius="3xl"
           outline={"none"}
           border={"none"}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
         />
       </InputGroup>
     </form>

@@ -4,8 +4,8 @@ import { Dispatch } from "react";
 interface ChatsContextType {
   chats: string[];
   setChats: Dispatch<React.SetStateAction<string[]>>;
-  loading: boolean;
-  setLoading: Dispatch<React.SetStateAction<boolean>>
+  thinking: boolean;
+  setThinking: Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ToggleContext = React.createContext<ChatsContextType>(

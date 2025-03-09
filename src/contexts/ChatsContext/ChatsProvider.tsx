@@ -7,10 +7,10 @@ interface Props {
 
 const ChatsProvider = ({ children }: Props) => {
   const [chats, setChats] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [thinking, setThinking] = useState(false);
 
   return (
-    <ChatsContext.Provider value={{ chats, setChats, loading, setLoading }}>
+    <ChatsContext.Provider value={{ chats, setChats, thinking, setThinking }}>
       {children}
     </ChatsContext.Provider>
   );
