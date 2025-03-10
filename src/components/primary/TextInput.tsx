@@ -2,12 +2,12 @@ import { chat } from "@/contexts/ChatsContext/ChatsContext";
 import useChats from "@/contexts/ChatsContext/useChats";
 import useIntParams from "@/hooks/useIntParams";
 import geminiFlash from "@/services/geminiFlash";
-import { Input } from "@chakra-ui/react";
+import normalisePrompt from "@/services/normalisePrompt";
+import { Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { InputGroup } from "../ui/input-group";
 import SendPromptButton from "./SendPromptButton";
-import normalisePrompt from "@/services/normalisePrompt";
 
 const TextInput = () => {
   const navigate = useNavigate();
@@ -50,17 +50,18 @@ const TextInput = () => {
   return (
     <form id="TextInput">
       <InputGroup
-        minW="768px"
+        minW={"768px"}
         endElement={
           <SendPromptButton prompt={prompt} handleSubmit={handleSubmit} />
         }
       >
-        <Input
-          as={"input"}
-          placeholder="Message Gemini"
-          variant="subtle"
-          size="lg"
-          borderRadius="3xl"
+        <Textarea
+          autoresize
+          as={"textarea"}
+          placeholder={"Message Gemini"}
+          variant={"subtle"}
+          size={"lg"}
+          borderRadius={"3xl"}
           outline={"none"}
           border={"none"}
           value={prompt}

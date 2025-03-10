@@ -10,17 +10,17 @@ const SendPromptButton = ({
 }) => {
   return (
     <IconButton
-      type="submit"
-      form="TextInput"
-      fontSize="2xl"
-      size="sm"
-      borderRadius="full"
+      type={"submit"}
+      form={"TextInput"}
+      fontSize={"2xl"}
+      size={"sm"}
+      borderRadius={"full"}
       disabled={prompt.trim() === ""}
       onClick={handleSubmit}
     >
-      <EnterIcon fontSize="2xl" />
+      <EnterIcon fontSize={"2xl"} />
     </IconButton>
   );
 };
 
-export default SendPromptButton
+export default SendPromptButton;
