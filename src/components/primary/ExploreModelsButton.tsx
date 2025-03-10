@@ -18,7 +18,7 @@ const ExploreGptButton = () => {
         w={"full"}
         outline={"none"}
       >
-        <Circle size="6">
+        <Circle size="6" borderWidth="1px">
           <ExploreModelsIcon fontSize="md" />
         </Circle>
         <Text fontSize="sm" fontWeight="md">

@@ -1,6 +1,5 @@
-import { Flex, HStack } from "@chakra-ui/react";
+import { Flex, HStack, Image } from "@chakra-ui/react";
 import CordialMenu from "./CordialMenu";
-import { Avatar } from "../ui/avatar";
 import MainPanelControls from "./MainPanelControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 
@@ -13,13 +12,7 @@ const TopSection = () => {
         {!sideBarVisible && <MainPanelControls />}
         <CordialMenu />
       </HStack>
-      <Avatar
-        name="Mbah Chiemerie"
-        size="xs"
-        colorPalette="teal"
-        variant="solid"
-        mr="3"
-      />
+      <Image src="/src/assets/Cordial Logo.png" boxSize={9}/>
     </Flex>
   );
 };

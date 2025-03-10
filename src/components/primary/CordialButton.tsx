@@ -1,5 +1,5 @@
-import { SmallGPTIcon } from "@/icons/sidebar-icons";
-import { Circle, HStack, Text } from "@chakra-ui/react";
+import { Circle, HStack, Icon, Text } from "@chakra-ui/react";
+import { FaInfinity } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const CordialButton = () => {
@@ -16,7 +16,9 @@ const CordialButton = () => {
         className="group"
       >
         <Circle size="6" borderWidth="1px">
-          <SmallGPTIcon fontSize="md" />
+          <Icon fontSize={"md"}>
+            <FaInfinity />
+          </Icon>
         </Circle>
         <Text fontSize="sm" fontWeight="md">
           Cordial Chat
