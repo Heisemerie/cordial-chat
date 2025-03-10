@@ -1,19 +1,19 @@
-import { Circle, HStack, Icon, Text } from "@chakra-ui/react";
+import { Button, Circle, Icon, Text } from "@chakra-ui/react";
 import { FaInfinity } from "react-icons/fa6";
+import { SiGooglegemini } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-const CordialButton = () => {
+const GeminiButton = () => {
   return (
     <Link to={"/"}>
-      <HStack
-        _hover={{ layerStyle: "fill.muted", textDecoration: "none" }}
-        px="1"
+      <Button
+        variant={"subtle"}
+        px="2"
         h="10"
         borderRadius="lg"
         w="100%"
         whiteSpace="nowrap"
-        position="relative"
-        className="group"
+        justifyContent={"flex-start"}
       >
         <Circle size="6" borderWidth="1px">
           <Icon fontSize={"md"}>
@@ -21,11 +21,12 @@ const CordialButton = () => {
           </Icon>
         </Circle>
         <Text fontSize="sm" fontWeight="md">
-          Cordial Chat
+          Gemini 1.5 Flash
         </Text>
-      </HStack>
+        <SiGooglegemini />
+      </Button>
     </Link>
   );
 };
 
-export default CordialButton;
+export default GeminiButton;

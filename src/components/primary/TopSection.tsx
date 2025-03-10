@@ -1,5 +1,5 @@
 import { Flex, HStack, Image } from "@chakra-ui/react";
-import CordialMenu from "./CordialMenu";
+import CordialDropDownMenu from "./CordialDropDownMenu";
 import MainPanelControls from "./MainPanelControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 
@@ -10,9 +10,9 @@ const TopSection = () => {
     <Flex justify="space-between" align="center" p={2} w={"full"}>
       <HStack>
         {!sideBarVisible && <MainPanelControls />}
-        <CordialMenu />
+        <CordialDropDownMenu />
       </HStack>
-      <Image src="/src/assets/Cordial Logo.png" boxSize={9}/>
+      <Image src="/src/assets/Cordial Logo.png" boxSize={9} />
     </Flex>
   );
 };

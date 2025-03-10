@@ -96,7 +96,7 @@ const MenuItemsList = () => {
   );
 };
 
-const CordialMenu = () => {
+const CordialDropDownMenu = () => {
   return (
     <MenuRoot>
       <MenuTrigger asChild>
@@ -106,7 +106,8 @@ const CordialMenu = () => {
           fontWeight="bold"
           color="fg.muted"
         >
-          Cordial <MenuIcon />
+          Cordial Chat
+          <MenuIcon />
         </Button>
       </MenuTrigger>
       <MenuContent borderRadius="2xl" minW="320px">
@@ -116,4 +117,4 @@ const CordialMenu = () => {
   );
 };
 
-export default CordialMenu;
+export default CordialDropDownMenu;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 interface Props {
   iD?: number;
-  title: string;
+  title?: string;
 }
 
 const SideBarChatButton = ({ iD, title }: Props) => {
@@ -18,7 +18,12 @@ const SideBarChatButton = ({ iD, title }: Props) => {
         justifyContent={"flex-start"}
         variant={iD === id ? "subtle" : "ghost"}
       >
-        <Text fontSize="sm" fontWeight="md">
+        <Text
+          fontSize="sm"
+          fontWeight="md"
+          overflowX={"scroll"}
+          scrollbarWidth={"none"}
+        >
           {title}
         </Text>
       </Button>

@@ -1,22 +1,18 @@
 import { ExploreModelsIcon } from "@/icons/sidebar-icons";
-import { Circle, HStack, Link, Text } from "@chakra-ui/react";
+import { Button, Circle, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const ExploreGptButton = () => {
   return (
-    <HStack
-      _hover={{ layerStyle: "fill.muted", textDecoration: "none" }}
-      px="1"
-      h="10"
-      borderRadius="lg"
-      w="100%"
-      whiteSpace="nowrap"
-    >
-      <Link
-        href="#"
-        variant="plain"
-        _hover={{ textDecoration: "none" }}
-        w={"full"}
-        outline={"none"}
+    <Link to={"#"}>
+      <Button
+        variant={"subtle"}
+        px="2"
+        h="10"
+        borderRadius="lg"
+        w="100%"
+        whiteSpace="nowrap"
+        justifyContent={"flex-start"}
       >
         <Circle size="6" borderWidth="1px">
           <ExploreModelsIcon fontSize="md" />
@@ -24,8 +20,8 @@ const ExploreGptButton = () => {
         <Text fontSize="sm" fontWeight="md">
           Explore Models
         </Text>
-      </Link>
-    </HStack>
+      </Button>
+    </Link>
   );
 };
 

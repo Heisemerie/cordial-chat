@@ -1,5 +1,5 @@
 import { Box, Stack } from "@chakra-ui/react";
-import CordialButton from "./CordialButton";
+import GeminiButton from "./GeminiButton";
 import ExploreGptButton from "./ExploreModelsButton";
 import UpgradePlanButton from "./UpgradePlanButton";
 import SideBarControls from "./SideBarControls";
@@ -22,8 +22,8 @@ const SideBar = () => {
       <Stack h="full" px="3" py="2">
         <SideBarControls />
 
-        <Stack px="2" gap="0">
-          <CordialButton />
+        <Stack px="2">
+          <GeminiButton />
           <ExploreGptButton />
         </Stack>
 
@@ -35,7 +35,11 @@ const SideBar = () => {
           scrollbarWidth={"none"}
         >
           {chats.map((chat, index) => (
-            <SideBarChatButton key={index} iD={index} title={chat[0]} />
+            <SideBarChatButton
+              key={index}
+              iD={index}
+              title={chat.history[0].parts[0].text}
+            />
           ))}
         </Stack>
 
