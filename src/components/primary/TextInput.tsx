@@ -1,50 +1,63 @@
+import { chat } from "@/contexts/ChatsContext/ChatsContext";
 import useChats from "@/contexts/ChatsContext/useChats";
 import useIntParams from "@/hooks/useIntParams";
-import chatGPTService from "@/services/chatGPTService";
+import geminiFlash from "@/services/geminiFlash";
 import { Input } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { InputGroup } from "../ui/input-group";
-import FileUploadButton from "./FileUploadButton";
 import SendPromptButton from "./SendPromptButton";
+import normalisePrompt from "@/services/normalisePrompt";
 
 const TextInput = () => {
   const navigate = useNavigate();
   const id = useIntParams();
+  const isHomePage = id === undefined;
 
-  const { setChats, setThinking, setChatId } = useChats();
   const [prompt, setPrompt] = useState("");
+  const { chats, setChats, setThinking } = useChats();
+  const newChatID = chats.length;
+  const currentChatHistory = chats?.[id!];
 
   const handleSubmit = () => {
-    if (prompt !== "") {
-      setPrompt("");
+    setPrompt("");
 
-      setThinking(true);
+    setThinking(() => true);
 
-      //send prompt to server
-      chatGPTService(prompt, id).then(
-        ({ storedChats, newOrRequestedChatId }) => {
-          navigate(`/chat/${newOrRequestedChatId}`);
-          setChats(storedChats);
-          setChatId(newOrRequestedChatId);
-          setThinking(false)
+    //send history & prompt to model
+    geminiFlash
+      .startChat(currentChatHistory)
+      .sendMessage(prompt)
+      .then((result) => {
+        const normalisedResponse = result.response.candidates?.[0]?.content;
+        const normalisedPrompt = normalisePrompt(prompt);
+
+        // On homepage: add a new chat
+        if (isHomePage) {
+          setChats((prevChats) => [
+            ...prevChats,
+            { history: [normalisedPrompt, normalisedResponse] } as chat,
+          ]);
+
+          // Navigate to new chat
+          navigate(`/chat/${newChatID}`);
+          setThinking(false);
         }
-      );
-    }
+        setThinking(false);
+      });
   };
 
   return (
     <form id="TextInput">
       <InputGroup
         minW="768px"
-        startElement={<FileUploadButton />}
         endElement={
           <SendPromptButton prompt={prompt} handleSubmit={handleSubmit} />
         }
       >
         <Input
           as={"input"}
-          placeholder="Message Gemini 1.5"
+          placeholder="Message Gemini"
           variant="subtle"
           size="lg"
           borderRadius="3xl"

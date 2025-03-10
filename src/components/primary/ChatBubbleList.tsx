@@ -8,10 +8,11 @@ import ThinkingSkeleton from "./ThinkingSkeleton";
 const ChatBubbleList = () => {
   const { id } = useParams();
   const idToNumber = parseInt(id!);
-  const { chats, thinking } = useChats();
-  const bottomRef = useRef<HTMLDivElement>(null);
 
-  console.log("chatlist", chats);
+  const { chats, thinking } = useChats();
+  const currentThread = chats[idToNumber]?.history;
+
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (bottomRef.current) {
@@ -21,7 +22,7 @@ const ChatBubbleList = () => {
 
   return (
     <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
-      {chats?.[idToNumber].history.map((chat, index) => (
+      {currentThread?.map((chat, index) => (
         <ChatBubble text={chat.parts[0].text} index={index} key={index} />
       ))}
       {thinking && <ThinkingSkeleton />}
