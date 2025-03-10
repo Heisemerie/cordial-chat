@@ -1,7 +1,7 @@
-import { Flex, HStack, Image } from "@chakra-ui/react";
+import useToggle from "@/contexts/ToggleContext/useToggle";
+import { Flex, HStack } from "@chakra-ui/react";
 import CordialDropDownMenu from "./CordialDropDownMenu";
 import MainPanelControls from "./MainPanelControls";
-import useToggle from "@/contexts/ToggleContext/useToggle";
 
 const TopSection = () => {
   const { sideBarVisible } = useToggle();
@@ -12,7 +12,6 @@ const TopSection = () => {
         {!sideBarVisible && <MainPanelControls />}
         <CordialDropDownMenu />
       </HStack>
-      <Image src="/src/assets/Cordial Logo.png" boxSize={9} />
     </Flex>
   );
 };

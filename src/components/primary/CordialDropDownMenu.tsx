@@ -10,6 +10,7 @@ import {
   Box,
   Circle,
   HStack,
+  Icon,
   MenuSeparator,
   Stack,
   Text,
@@ -23,6 +24,7 @@ import {
 } from "../../icons/other-icons";
 import { Fragment } from "react/jsx-runtime";
 import { ReactNode } from "react";
+import { FaInfinity } from "react-icons/fa6";
 
 interface Props {
   icon: ReactNode;
@@ -106,7 +108,12 @@ const CordialDropDownMenu = () => {
           fontWeight="bold"
           color="fg.muted"
         >
-          Cordial Chat
+          Cordial {" "}
+          <Circle size="6" borderWidth="1px">
+            <Icon fontSize={"md"}>
+              <FaInfinity />
+            </Icon>
+          </Circle>
           <MenuIcon />
         </Button>
       </MenuTrigger>
