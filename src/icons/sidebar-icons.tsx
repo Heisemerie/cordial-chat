@@ -41,7 +41,7 @@ export function SmallGPTIcon(props: IconProps) {
   );
 }
 
-export function ExploreGPTIcon(props: IconProps) {
+export function ExploreModelsIcon(props: IconProps) {
   return (
     <Icon viewBox="0 0 24 24" fill="none" {...props}>
       <svg>

@@ -1,5 +1,5 @@
 import { Flex, HStack } from "@chakra-ui/react";
-import ChatGPTMenu from "./ChatGPTMenu";
+import CordialMenu from "./CordialMenu";
 import { Avatar } from "../ui/avatar";
 import MainPanelControls from "./MainPanelControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
@@ -11,7 +11,7 @@ const TopSection = () => {
     <Flex justify="space-between" align="center" p={2} w={"full"}>
       <HStack>
         {!sideBarVisible && <MainPanelControls />}
-        <ChatGPTMenu />
+        <CordialMenu />
       </HStack>
       <Avatar
         name="Mbah Chiemerie"

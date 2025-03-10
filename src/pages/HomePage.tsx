@@ -2,12 +2,12 @@ import { Center, Heading, HStack, VStack } from "@chakra-ui/react";
 import PrompButtonList from "../components/primary/PrompButtonList";
 import TextInput from "../components/primary/TextInput";
 import useChats from "@/contexts/ChatsContext/useChats";
-import ThinkingPage from "@/components/primary/ThinkingPage";
+import ThinkingPanel from "@/components/primary/ThinkingPanel";
 
 const HomePage = () => {
   const { thinking } = useChats();
 
-  if (thinking) return <ThinkingPage />;
+  if (thinking) return <ThinkingPanel />;
 
   return (
     <VStack gap={"6"}>

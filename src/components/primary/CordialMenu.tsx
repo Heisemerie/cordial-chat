@@ -15,8 +15,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import {
-  ChatGPTMenuIcon,
-  ChatGPTPlusIcon,
+  CordialMenuIcon,
+  CordialPlusIcon,
   CheckIcon,
   MenuIcon,
   TemporaryChatIcon,
@@ -51,9 +51,9 @@ const MenuItemDetail = ({ icon, title, description, element }: Props) => {
 const MenuItemsList = () => {
   const menuItems = [
     {
-      value: "chatgpt-plus",
-      icon: <ChatGPTPlusIcon />,
-      title: "ChatGPT Plus",
+      value: "cordial-plus",
+      icon: <CordialPlusIcon />,
+      title: "Cordial Plus",
       description: "Our smartest model & more",
       element: (
         <Button variant="outline" size="xs" borderRadius="full">
@@ -62,9 +62,9 @@ const MenuItemsList = () => {
       ),
     },
     {
-      value: "chatgpt",
-      icon: <ChatGPTMenuIcon />,
-      title: "ChatGPT",
+      value: "cordial",
+      icon: <CordialMenuIcon />,
+      title: "Cordial",
       description: "Great for everyday tasks",
       element: <CheckIcon fontSize="lg" />,
     },
@@ -96,7 +96,7 @@ const MenuItemsList = () => {
   );
 };
 
-const ChatGPTMenu = () => {
+const CordialMenu = () => {
   return (
     <MenuRoot>
       <MenuTrigger asChild>
@@ -106,7 +106,7 @@ const ChatGPTMenu = () => {
           fontWeight="bold"
           color="fg.muted"
         >
-          ChatGPT <MenuIcon />
+          Cordial <MenuIcon />
         </Button>
       </MenuTrigger>
       <MenuContent borderRadius="2xl" minW="320px">
@@ -116,4 +116,4 @@ const ChatGPTMenu = () => {
   );
 };
 
-export default ChatGPTMenu;
+export default CordialMenu;

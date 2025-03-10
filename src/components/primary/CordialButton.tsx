@@ -2,7 +2,7 @@ import { SmallGPTIcon } from "@/icons/sidebar-icons";
 import { Circle, HStack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const ChatGptButton = () => {
+const CordialButton = () => {
   return (
     <Link to={"/"}>
       <HStack
@@ -19,11 +19,11 @@ const ChatGptButton = () => {
           <SmallGPTIcon fontSize="md" />
         </Circle>
         <Text fontSize="sm" fontWeight="md">
-          ChatGPT
+          Cordial Chat
         </Text>
       </HStack>
     </Link>
   );
 };
 
-export default ChatGptButton;
+export default CordialButton;

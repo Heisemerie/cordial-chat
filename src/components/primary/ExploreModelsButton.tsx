@@ -1,4 +1,4 @@
-import { ExploreGPTIcon } from "@/icons/sidebar-icons";
+import { ExploreModelsIcon } from "@/icons/sidebar-icons";
 import { Circle, HStack, Link, Text } from "@chakra-ui/react";
 
 const ExploreGptButton = () => {
@@ -19,10 +19,10 @@ const ExploreGptButton = () => {
         outline={"none"}
       >
         <Circle size="6">
-          <ExploreGPTIcon fontSize="md" />
+          <ExploreModelsIcon fontSize="md" />
         </Circle>
         <Text fontSize="sm" fontWeight="md">
-          Explore GPTs
+          Explore Models
         </Text>
       </Link>
     </HStack>

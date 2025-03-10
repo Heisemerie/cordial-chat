@@ -44,7 +44,7 @@ const TextInput = () => {
       >
         <Input
           as={"input"}
-          placeholder="Message ChatGPT"
+          placeholder="Message Gemini 1.5"
           variant="subtle"
           size="lg"
           borderRadius="3xl"

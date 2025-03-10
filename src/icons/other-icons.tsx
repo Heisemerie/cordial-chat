@@ -244,7 +244,7 @@ export function MenuIcon(props: IconProps) {
   );
 }
 
-export function ChatGPTPlusIcon(props: IconProps) {
+export function CordialPlusIcon(props: IconProps) {
   return (
     <Icon viewBox="0 0 24 24" fill="none" {...props}>
       <svg>
@@ -263,7 +263,7 @@ export function ChatGPTPlusIcon(props: IconProps) {
   );
 }
 
-export function ChatGPTMenuIcon(props: IconProps) {
+export function CordialMenuIcon(props: IconProps) {
   return (
     <Icon viewBox="0 0 24 24" fill="none" {...props}>
       <svg>

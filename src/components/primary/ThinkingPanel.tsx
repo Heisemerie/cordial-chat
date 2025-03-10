@@ -2,7 +2,7 @@ import { Box, VStack } from "@chakra-ui/react";
 import TextInput from "./TextInput";
 import ThinkingSkeleton from "./ThinkingSkeleton";
 
-const ThinkingPage = () => {
+const ThinkingPanel = () => {
   return (
     <VStack h={"full"} maxW={"768px"}>
       <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
@@ -13,4 +13,4 @@ const ThinkingPage = () => {
   );
 };
 
-export default ThinkingPage;
+export default ThinkingPanel;
