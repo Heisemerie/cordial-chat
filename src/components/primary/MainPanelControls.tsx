@@ -1,11 +1,11 @@
 import { Flex } from "@chakra-ui/react";
-import CloseSideBarButton from "./CloseSideBarButton";
+import ToggleSideBarButton from "./ToggleSideBarButton";
 import NewChatButton from "./NewChatButton";
 
 const MainPanelControls = () => {
   return (
     <Flex justify="space-between">
-      <CloseSideBarButton />
+      <ToggleSideBarButton />
       <NewChatButton />
     </Flex>
   );

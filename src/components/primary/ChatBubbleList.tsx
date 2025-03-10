@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 import ChatBubble from "./ChatBubble";
 import ThinkingSkeleton from "./ThinkingSkeleton";
 
-const ChatList = () => {
+const ChatBubbleList = () => {
   const { id } = useParams();
-  const idToNumber = parseInt(id!)
+  const idToNumber = parseInt(id!);
   const { chats, thinking } = useChats();
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  console.log("chatlist", chats);
 
   useEffect(() => {
     if (bottomRef.current) {
@@ -19,8 +21,8 @@ const ChatList = () => {
 
   return (
     <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
-      {chats[idToNumber!].map((chat, index) => (
-        <ChatBubble text={chat} index={index} key={index} />
+      {chats?.[idToNumber].history.map((chat, index) => (
+        <ChatBubble text={chat.parts[0].text} index={index} key={index} />
       ))}
       {thinking && <ThinkingSkeleton />}
       <div ref={bottomRef} />
@@ -28,4 +30,4 @@ const ChatList = () => {
   );
 };
 
-export default ChatList;
+export default ChatBubbleList;

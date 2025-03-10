@@ -3,7 +3,7 @@ import { IconButton } from "@chakra-ui/react";
 import { Tooltip } from "../ui/tooltip";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 
-const CloseSideBarButton = () => {
+const ToggleSideBarButton = () => {
   const { sideBarVisible, setSidebarVisible } = useToggle();
 
   return (
@@ -22,4 +22,4 @@ const CloseSideBarButton = () => {
   );
 };
 
-export default CloseSideBarButton;
+export default ToggleSideBarButton;
