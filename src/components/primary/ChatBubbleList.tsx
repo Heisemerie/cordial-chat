@@ -18,7 +18,8 @@ const ChatBubbleList = () => {
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [thinking]);
+    localStorage.setItem("chats", JSON.stringify(chats));
+  }, [thinking, chats]);
 
   return (
     <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>

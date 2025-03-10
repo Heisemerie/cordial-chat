@@ -41,8 +41,8 @@ const TextInput = () => {
 
           // Navigate to new chat
           navigate(`/chat/${newChatID}`);
-          setThinking(false);
         }
+
         setThinking(false);
       });
   };

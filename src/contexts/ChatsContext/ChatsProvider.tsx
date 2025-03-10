@@ -6,7 +6,9 @@ interface Props {
 }
 
 const ChatsProvider = ({ children }: Props) => {
-  const [chats, setChats] = useState<chat[]>([]);
+  const [chats, setChats] = useState<chat[]>(
+    JSON.parse(localStorage.getItem("chats") || "[]")
+  );
   const [thinking, setThinking] = useState(false);
 
   return (
