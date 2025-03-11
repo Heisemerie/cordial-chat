@@ -6,6 +6,8 @@ import ChatBubble from "./ChatBubble";
 import ThinkingSkeleton from "./ThinkingSkeleton";
 
 const ChatBubbleList = () => {
+  "use no memo"; // Exclude this component from optimization
+  
   const { id } = useParams();
   const idToNumber = parseInt(id!);
 
