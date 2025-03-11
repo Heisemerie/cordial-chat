@@ -5,7 +5,7 @@ import UpgradePlanButton from "./UpgradePlanButton";
 import SideBarControls from "./SideBarControls";
 import useToggle from "@/contexts/ToggleContext/useToggle";
 import useChats from "@/contexts/ChatsContext/useChats";
-import SideBarChatButton from "./SideBarChatButton";
+import ChatButton from "./ChatButton";
 
 const SideBar = () => {
   const { sideBarVisible } = useToggle();
@@ -35,9 +35,9 @@ const SideBar = () => {
           scrollbarWidth={"none"}
         >
           {chats.map((chat, index) => (
-            <SideBarChatButton
+            <ChatButton
               key={index}
-              iD={index}
+              chatIndex={index}
               title={chat.history[0].parts[0].text}
             />
           ))}

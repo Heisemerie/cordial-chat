@@ -1,22 +1,24 @@
 import useIntParams from "@/hooks/useIntParams";
 import { Button, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import ChatDeleteButton from "./ChatDeleteButton";
 
 interface Props {
-  iD?: number;
+  chatIndex?: number;
   title?: string;
 }
 
-const SideBarChatButton = ({ iD, title }: Props) => {
+const ChatButton = ({ chatIndex, title }: Props) => {
   const id = useIntParams();
 
   return (
-    <Link to={`/chat/${iD}`}>
+    <Link to={`/chat/${chatIndex}`}>
       <Button
         w={"full"}
         borderRadius="lg"
-        justifyContent={"flex-start"}
-        variant={iD === id ? "subtle" : "ghost"}
+        justifyContent={"space-between"}
+        variant={chatIndex === id ? "subtle" : "ghost"}
+        className="group"
       >
         <Text
           fontSize="sm"
@@ -26,9 +28,10 @@ const SideBarChatButton = ({ iD, title }: Props) => {
         >
           {title}
         </Text>
+        <ChatDeleteButton chatIndex={chatIndex} />
       </Button>
     </Link>
   );
 };
 
-export default SideBarChatButton;
+export default ChatButton;

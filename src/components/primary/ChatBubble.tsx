@@ -1,5 +1,5 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
-import ClipBoardGroup from "./ClipBoard";
+import ClipBoardGroup from "./ClipBoardGroup";
 
 interface Props {
   text?: string;
