@@ -11,7 +11,7 @@ const SendPromptButton = ({
   return (
     <IconButton
       type={"submit"}
-      form={"TextInput"}
+      form={"PromptInput"}
       fontSize={"2xl"}
       size={"sm"}
       borderRadius={"full"}

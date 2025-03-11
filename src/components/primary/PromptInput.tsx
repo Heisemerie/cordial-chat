@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { InputGroup } from "../ui/input-group";
 import SendPromptButton from "./SendPromptButton";
 
-const TextInput = () => {
+const PromptInput = () => {
   const navigate = useNavigate();
   const id = useIntParams();
   const isHomePage = id === undefined;
@@ -48,7 +48,7 @@ const TextInput = () => {
   };
 
   return (
-    <form id="TextInput">
+    <form id="PromptInput">
       <InputGroup
         minW={"768px"}
         endElement={
@@ -72,4 +72,4 @@ const TextInput = () => {
   );
 };
 
-export default TextInput;
+export default PromptInput;

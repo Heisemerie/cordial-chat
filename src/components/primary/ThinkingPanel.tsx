@@ -1,5 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
-import TextInput from "./TextInput";
+import PromptInput from "./PromptInput";
 import ThinkingSkeleton from "./ThinkingSkeleton";
 
 const ThinkingPanel = () => {
@@ -8,7 +8,7 @@ const ThinkingPanel = () => {
       <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
         <ThinkingSkeleton />
       </Box>
-      <TextInput />
+      <PromptInput />
     </VStack>
   );
 };

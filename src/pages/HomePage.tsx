@@ -1,6 +1,6 @@
 import { Center, Heading, HStack, VStack } from "@chakra-ui/react";
 import PrompButtonList from "../components/primary/PrompButtonList";
-import TextInput from "../components/primary/TextInput";
+import PromptInput from "../components/primary/PromptInput";
 import useChats from "@/contexts/ChatsContext/useChats";
 import ThinkingPanel from "@/components/primary/ThinkingPanel";
 
@@ -13,7 +13,7 @@ const HomePage = () => {
     <VStack gap={"6"}>
       <Heading size="3xl">What can I help with?</Heading>
       <Center>
-        <TextInput />
+        <PromptInput />
       </Center>
       <HStack gap={"2"}>
         <PrompButtonList />
