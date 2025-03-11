@@ -20,7 +20,7 @@ const SideBarDrawer = () => {
         </IconButton>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerBody>
+        <DrawerBody display={"flex"}>
           <SideBarDrawerContent />
         </DrawerBody>
         <DrawerCloseTrigger />
