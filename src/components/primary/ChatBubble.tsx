@@ -13,6 +13,7 @@ const ChatBubble = ({ text, index }: Props) => {
     <HStack
       w={"full"}
       justifyContent={isUserPrompt ? "flex-end" : "flex-start"}
+      className="group"
     >
       <Box
         p={3}

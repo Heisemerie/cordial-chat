@@ -15,9 +15,9 @@ const ClipBoard = ({ value }: Props) => {
   );
 };
 
-const ClipBoardGroup = ({value}:Props) => {
+const ClipBoardGroup = ({ value }: Props) => {
   return (
-    <HStack gap={1} className={"group"}>
+    <HStack gap={1}>
       <ClipBoard value={value} />
       <HStack>
         <SiGooglegemini color={"gray"} />
