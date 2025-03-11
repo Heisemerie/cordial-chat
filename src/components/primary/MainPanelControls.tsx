@@ -4,7 +4,7 @@ import NewChatButton from "./NewChatButton";
 
 const MainPanelControls = () => {
   return (
-    <Flex justify="space-between">
+    <Flex justify="space-between" hideBelow={"md"}>
       <ToggleSideBarButton />
       <NewChatButton />
     </Flex>

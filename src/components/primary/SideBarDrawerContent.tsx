@@ -1,26 +1,16 @@
-import { Box, Stack } from "@chakra-ui/react";
-import GeminiButton from "./GeminiButton";
-import ExploreGptButton from "./ExploreModelsButton";
-import UpgradePlanButton from "./UpgradePlanButton";
-import SideBarControls from "./SideBarControls";
-import useToggle from "@/contexts/ToggleContext/useToggle";
 import useChats from "@/contexts/ChatsContext/useChats";
+import { Box, Stack } from "@chakra-ui/react";
 import ChatButton from "./ChatButton";
+import ExploreGptButton from "./ExploreModelsButton";
+import GeminiButton from "./GeminiButton";
+import SideBarControls from "./SideBarControls";
+import UpgradePlanButton from "./UpgradePlanButton";
 
-const SideBar = () => {
-  const { sideBarVisible } = useToggle();
+const SideBarDrawerContent = () => {
   const { chats } = useChats();
-
   return (
-    <Box
-      bg="bg.subtle"
-      w={!sideBarVisible ? "0" : "260px"}
-      overflow="hidden"
-      transition="width 0.3s"
-      h={"full"}
-      hideBelow={"md"}
-    >
-      <Stack h="full" px="3" py="2">
+    <Box bg="bg.subtle" overflow="hidden" h={"full"}>
+      <Stack h="full" px="3" py="2" marginTop={3}>
         <SideBarControls />
 
         <Stack px="2">
@@ -50,4 +40,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default SideBarDrawerContent;

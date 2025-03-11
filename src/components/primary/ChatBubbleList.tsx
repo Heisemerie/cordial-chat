@@ -22,7 +22,13 @@ const ChatBubbleList = () => {
   }, [thinking, chats]);
 
   return (
-    <Box flex={1} w={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
+    <Box
+      flex={1}
+      w={"full"}
+      overflowY={"scroll"}
+      scrollbarWidth={"none"}
+      px={1}
+    >
       {currentThread?.map((chat, index) => (
         <ChatBubble text={chat.parts[0].text} index={index} key={index} />
       ))}

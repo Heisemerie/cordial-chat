@@ -5,7 +5,7 @@ import {
   IllustrationIcon,
 } from "@/icons/other-icons";
 import { useState } from "react";
-import { Button, Span } from "@chakra-ui/react";
+import { Button, HStack, Span } from "@chakra-ui/react";
 
 interface PromptButtonProps {
   icon?: React.ReactElement;
@@ -57,7 +57,12 @@ const PrompButtonList = () => {
   ];
 
   return (
-    <>
+    <HStack
+      mx={1}
+      overflow={"scroll"}
+      scrollbarWidth={"none"}
+      maxW={{ base: "90vw", md: "500px", lg: "768px" }}
+    >
       {promptButtons.map(({ icon, description }, index) => (
         <PromptButton
           icon={icon}
@@ -67,7 +72,7 @@ const PrompButtonList = () => {
           selectedPrompt={selectedPrompt}
         />
       ))}
-    </>
+    </HStack>
   );
 };
 

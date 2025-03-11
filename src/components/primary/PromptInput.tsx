@@ -50,13 +50,14 @@ const PromptInput = () => {
   return (
     <form id="PromptInput">
       <InputGroup
-        minW={"768px"}
+        minW={{ base: "95vw", md: "540px", lg: "768px" }}
         endElement={
           <SendPromptButton prompt={prompt} handleSubmit={handleSubmit} />
         }
       >
         <Input
           h={20}
+          mx={2}
           as={"textarea"}
           placeholder={"Message Gemini"}
           variant={"subtle"}
