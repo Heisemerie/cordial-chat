@@ -9,8 +9,8 @@ import UpgradePlanButton from "./UpgradePlanButton";
 const SideBarDrawerContent = () => {
   const { chats } = useChats();
   return (
-    <Box bg="bg.subtle" overflow="hidden" h={"full"}>
-      <Stack h="full" px="3" py="2" marginTop={3}>
+    <Box bg="bg.subtle" h={"full"} overflowY={"scroll"} scrollbarWidth={"none"}>
+      <Stack h="full" px="3" py="2" my={3}>
         <SideBarControls />
 
         <Stack px="2">
