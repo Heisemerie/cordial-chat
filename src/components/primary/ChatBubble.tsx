@@ -1,4 +1,5 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
+import ClipBoardGroup from "./ClipBoard";
 
 interface Props {
   text?: string;
@@ -20,6 +21,7 @@ const ChatBubble = ({ text, index }: Props) => {
         maxW={isUserPrompt ? "2/3" : "full"}
       >
         <Text>{text}</Text>
+        {!isUserPrompt && <ClipBoardGroup />}
       </Box>
     </HStack>
   );

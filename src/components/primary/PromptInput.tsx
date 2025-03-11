@@ -3,7 +3,7 @@ import useChats from "@/contexts/ChatsContext/useChats";
 import useIntParams from "@/hooks/useIntParams";
 import geminiFlash from "@/services/geminiFlash";
 import normalisePrompt from "@/services/normalisePrompt";
-import { Textarea } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { InputGroup } from "../ui/input-group";
@@ -55,8 +55,8 @@ const PromptInput = () => {
           <SendPromptButton prompt={prompt} handleSubmit={handleSubmit} />
         }
       >
-        <Textarea
-          autoresize
+        <Input
+          h={20}
           as={"textarea"}
           placeholder={"Message Gemini"}
           variant={"subtle"}
