@@ -13,7 +13,9 @@ const ChatDeleteButton = ({ chatIndex }: Props) => {
 
   const deleteChat = (e: React.MouseEvent) => {
     e.preventDefault();
-    setChats(chats.filter((_, index) => index !== chatIndex));
+    const newChat = chats.filter((_, index) => index !== chatIndex);
+    setChats(() => newChat);
+    localStorage.setItem("chats", JSON.stringify(newChat));
     navigate("/");
   };
 
