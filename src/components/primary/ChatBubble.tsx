@@ -1,5 +1,7 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import ClipBoardGroup from "./ClipBoardGroup";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Props {
   text?: string;
@@ -21,7 +23,9 @@ const ChatBubble = ({ text, index }: Props) => {
         bg={isUserPrompt ? "bg.emphasized" : "none"}
         maxW={isUserPrompt ? "2/3" : "full"}
       >
-        <Text>{text}</Text>
+        <Text>
+          <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+        </Text>
         {!isUserPrompt && <ClipBoardGroup />}
       </Box>
     </HStack>
