@@ -1,8 +1,8 @@
 import { chat } from "@/contexts/ChatsContext/ChatsContext";
 import useChats from "@/contexts/ChatsContext/useChats";
 import useIntParams from "@/hooks/useIntParams";
-import geminiFlash from "@/services/geminiFlash";
-import normalisePrompt from "@/services/normalisePrompt";
+import geminiFlash from "@/services/gemini-flash";
+import normalisePrompt from "@/services/normalise-prompt";
 import { Input } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
